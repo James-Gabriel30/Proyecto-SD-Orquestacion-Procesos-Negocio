@@ -48,7 +48,7 @@ if (isset($_POST['enviar'])) {
     $conn_md = new ConnectMiddleware();
     $stomp = $conn_md->connect();
     $producer = new Producer();
-    $mensaje=json_encode($mensaje);
+    $mensaje=json_encode($mensaje, JSON_UNESCAPED_UNICODE);
 
     $producer->enviarMensaje($stomp,constant('TOPIC_TO'), $mensaje);
 

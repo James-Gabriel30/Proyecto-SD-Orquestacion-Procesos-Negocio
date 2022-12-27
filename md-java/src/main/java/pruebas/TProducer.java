@@ -68,14 +68,18 @@ public class TProducer {
 
             Session ssn = con.createSession(Session.AUTO_ACKNOWLEDGE);
 
-            Destination dtn = ssn.createQueue("fisi_tiendautiles/mod_facturacion");
+            Destination dtn = ssn.createQueue("fisi_tiendautiles/mod_ordenes");
 
             MessageProducer mp = ssn.createProducer(dtn);
 
-            String json_msj = new Gson().toJson(msj);
+            /*String json_msj = new Gson().toJson(msj);
 
-            TextMessage tm = ssn.createTextMessage(json_msj);
+            TextMessage tm = ssn.createTextMessage(json_msj);*/
 
+            //mp.send(tm);
+
+            String msg = "{'estado' = 1, 'contenido' = 'Solicitando confirmacionddddd'}";
+            TextMessage tm = ssn.createTextMessage(msg);
             mp.send(tm);
         } catch (JMSException ex) {
             System.out.println("Esperando...");

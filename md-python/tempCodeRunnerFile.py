@@ -1,5 +1,3 @@
-import stomp
-import time
 import json
 from settings import settings
 
@@ -43,7 +41,7 @@ def listaProductos():
             }
         }
     , ensure_ascii=False)
-    conn.send(destination = settings.TOPIC_TO_2, body="academia", message="y esto?", headers = {'persistent': 'true'})
+    conn.send(destination = settings.TOPIC_TO_2, body=message, headers = {'persistent': 'true'})
     # print("Lista de artículos enviado al módulo de Administración de inventario y Reserva...")
     print("Lista de artículos enviado al módulo de Facturacion...")
     time.sleep(2)
