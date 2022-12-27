@@ -1,0 +1,17 @@
+{
+    "activemq": {
+        "topics": [
+            {
+                "name": "cuentasPorCobrar"
+            },
+            {
+                "name": "confirmacion"
+            }
+        ]
+    },
+    "db": {
+        "host": "localhost",
+        "port": 27017,
+        "name": "accountReceivableDB"
+    }
+}
